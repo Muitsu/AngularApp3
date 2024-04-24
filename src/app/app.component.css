@@ -1,0 +1,12 @@
+ul > li {
+display: inline;
+padding: 5px;
+}
+ul{
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.active{
+    background-color: lightblue;
+}
