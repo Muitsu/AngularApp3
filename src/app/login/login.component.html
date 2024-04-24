@@ -1,15 +1,14 @@
 <h1>Login</h1>
-<form #myForm (ngSubmit)="login()">
+<form #myForm="ngForm" (ngSubmit)="login()">
 
 <div>
 
-    <input type="text" name="username" [(ngModel)] = "username" placeholder="username" required>
-    <div>Username is Required</div>
-    <input type="text" name="password" [(ngModel)] = "password" placeholder="password" required>
-    <!-- <div *ngIf="myForm.controls['username'].invalid()">Password is Required</div> -->
+    <input type="text" name="username" [(ngModel)] = "username" placeholder="username" required maxlength="6">
+    <div class="danger" *ngIf="myForm.controls['username']?.touched&& myForm.controls['username']?.invalid">Username is Required</div>
+    
+    <input type="password" name="password" [(ngModel)] = "password" placeholder="password" required maxlength="5">
+    <div class="danger" *ngIf="myForm.controls['password']?.touched&& myForm.controls['password']?.invalid">Password is Required</div>
 
-    <input type="submit" value="Login">
+    <input type="submit" value="Login" [disabled]="myForm.invalid">
 </div>
-
-
 </form>
